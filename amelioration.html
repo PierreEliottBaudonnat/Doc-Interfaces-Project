@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang=fr>
+	<head>
+			<meta charset="UTF-8">
+			<link rel="stylesheet" href="amelioration.css">
+			<title>Améliorations</title>
+	</head>
+	<body>
+		<div id="bloc_page">
+			<header>
+				<h1>Développeur d'applications mobiles</h1>
+				<nav>
+					<ul id="menu">
+						<li><a href="Site.html" title="site">Acceuil</a></li>
+						<li><a href="page1.html" title="améliorations">Présentation</a></li>
+						<li><a href="" title="médias" id="med">Médias</a>
+							<ul>	
+								<li><a href="galerie.html" title="page photos">Galerie</a></li>
+								<li><a href="vidéos.html" title="page vidéos">Vidéos</a></li>
+							</ul>
+						</li>
+						
+					</ul>
+				</nav>
+			</header>
+		
+			<section>
+				<article id="art1">
+					<p>Vous souhaitez nous faire remonter des bugs ? <br/><br/> 
+					Vous souhaitez apporter de nouvelles idées auxquelles nous n'aurions 
+					pas pensé ? <br/><br/>
+					Aucun souci, il vous suffit de remplir le formulaire ci-dessous !</p>
+				</article>
+				<article id="art2">
+					<form method="POST" action="rep.php">
+						<p>
+							<label for="nom">Votre nom (obligatoire)</label>
+							<input type="text" name="nom" required="required" class="form" placeholder="Jean Jacques ?..."/>
+						</p>
+						<p>
+							<label for="email">Votre email (obligatoire)</label>
+							<input type="email" name="email" required="required" class="form" placeholder="Email"/>
+						</p>
+						<p>
+							<label for="tel">Numéro de téléphone (pas obligatoire)</label>
+							<input type="tel" name="tel" class="form" placeholder="N° de tel"/>
+						</p>
+						<p>
+							<label for="sav">S'agit-il...? (obligatoire)</label>
+							<select name="sav" required="required" class="form">
+								<option value="bug">D'un bug</option>
+								<option value="amel">D'une amélioration</option>
+								<option value="autre">D'autre chose</option>
+							</select>
+						</p>
+						<p>
+							<label for="q">Ceci est votre première visite :</label>
+							<label for="btn_radio1">Oui</label>
+							<input type="radio" name="q" class="form" value="0">
+							<label for="btn_radio2">Non</label>
+							<input type="radio" name="q" class="form" value="1">
+						</p>
+						<p>
+								<label for="desc">Votre message (obligatoire)</label>
+								<textarea name="desc" required="required" class="form" rows="5" cols="30"></textarea>
+						</p>
+						<p>
+							<input type="submit" class="form" title="page vidÃ©os" value="Envoyer">
+						</p>
+					</form>
+					<?php
+					
+					if(isset($_POST) && isset($_POST[ 'nom' ]) && isset($_POST[ 'email' ]) && isset($_POST[ 'message' ])) 
+					{
+						extract($_POST);
+					
+					}
+					if(empty($nom))
+					{
+						echo " Vous n'avez pas indiqué votre nom !";
+					   
+					}
+					   
+					if(empty($email))
+					{
+						echo " Vous n'avez pas indiqué votre nom !";
+					   
+					}
+					
+					if (empty($sav))
+					{
+						echo "Vous n'avez pas indiqué de quoi s'agit-il !"
+					}
+							
+					if(empty($message))
+					{
+						echo "Vous n'avez pas  indiqué votre message !";
+						
+					}
+					?>
+
+				</article>
+			</section>
+		</div>
+		<footer>
+			<h1>Suivez nous !</h1>
+				<nav>
+					<ul>
+						<li><a href="https://www.facebook.com/"><img src="PhotosSite/facebook.png" alt="" title="J'aime"/></a></li>
+						<li><a href="https://twitter.com/?lang=fr"><img src="PhotosSite/twitter.jpg" alt="" title="tweet"/></a></li>
+						<li><a href="https://www.youtube.com/results?search_query=Le+Rugby+International"><img src="PhotosSite/youtube.png" alt="" title="Pouce Vert"/></a></li>
+						<li><a href="https://instagram.com/"><img src="PhotosSite/insta.png" alt="" title="Follow"/></a></li>
+					</ul>
+				</nav>
+		</footer>
+	</body>
+
+
+</html>
